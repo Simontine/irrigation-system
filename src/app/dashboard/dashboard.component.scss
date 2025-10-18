@@ -1,0 +1,117 @@
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(0px);
+  }
+  
+  .progress {
+    background-color: #e9ecef;
+    border-radius: 10px;
+  }
+  
+  .bg-soil{
+    background-color:#705205
+  }
+
+  
+
+  .navbar {
+    // background-color: #007bff;
+    background-color: rgb(6 95 70 / var(--tw-bg-opacity, 1));
+    color: #ffffff;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .navbar-brand{
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+
+  .nav-link{
+    color: #ffffff !important;
+  }
+
+  .logout{
+    font-weight: bold;
+  }
+
+  .text-justify-last-center {
+    text-align: justify;
+    text-align-last: center; /* This works in most modern browsers */
+  }
+
+  .welcome{
+    --tw-text-opacity: 1;
+    color: rgb(31 41 55 / var(--tw-text-opacity, 1));
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+  .auto{
+    --tw-text-opacity: 1;
+    color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+    font-weight: 400;
+    font-size: 16.5px;
+  }
+
+  .zones{
+    color: rgb(31 41 55 / var(--tw-text-opacity, 1));
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding-left: 5.5rem;
+    margin-top: 1rem;
+    // background-color: 
+  }
+
+  .timer
+  {
+    box-shadow: black;
+  }
+
+.dataName{
+  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+  font-weight: 500;
+}
+
+  
+  /* Styling for the Black state */
+.black-bg {
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-violet-bg);
+  color: white; /* Text color */
+  padding: 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s; /* Smooth transition */
+  display: inline-block;
+  text-align: center;
+}
+
+/* Styling for the Green state */
+.green-bg {
+  background-color: green;
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-violet-bg);
+  color: white; /* Text color */
+  padding: 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Optional: Style the image if needed */
+img {
+  display: block;
+  margin: 10px auto 0;
+}
+

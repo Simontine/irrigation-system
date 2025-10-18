@@ -1,0 +1,267 @@
+<nav class="navbar navbar-expand-lg justify-content-center">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/" style="color: white;">GreenThumb</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/dashboard" aria-current="page">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/features">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/pricing">Pricing</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <!-- ✅ logout triggers the logout() function -->
+          <a class="nav-link logout" style="cursor:pointer;" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-0">
+    <h1 class="display-5 fw-bold text-justify-last-center welcome">Welcome, Vincent!</h1>
+    <p class="col-md-8 mx-auto text-justify-last-center auto">Automated watering system that adapts to weather
+      conditions and soil moisture</p>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="card" style="width: 100%; height: 160px;">
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <div class="row align-items-center">
+            <div class="col-auto" style="padding-left: 3rem;">
+              <img src="https://img.icons8.com/?size=100&id=15936&format=png&color=40C057" alt="Hello" class="img-fluid"
+                style="max-width: 100px; ">
+            </div>
+            <div class="col">
+              <p class="mb-0" style="margin-top: 1.5rem;">
+              <h5>System Status</h5>
+              <p>Last updated: {{time}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class=" bg-light text-start" style="margin-top: 3rem; height: 20rem;">
+  <p class="zones" style="padding-top: 2rem;">Live Sensor Data</p>
+  <div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <img src="https://img.icons8.com/?size=100&id=9440&format=png&color=FA5252" alt="Hello" class="img-fluid"
+              style="max-width: 18rem; height: 6rem; margin-left: 1rem; margin-bottom: 1rem;">
+          </div>
+          <div class="col">
+            <p class="mb-0">
+            <p class="dataName">Temparature</p>
+            <h1>{{temperature}} &deg;C</h1>
+          </div>
+          <div class="progress" style="height: 15px">
+            <div class="progress-bar bg-danger" role="progressbar" aria-label="Basic example" [style.width.%]="humidity"
+              [attr.aria-valuenow]="temperature" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <img src="https://img.icons8.com/?size=100&id=3432&format=png&color=22C3E6" alt="" class="img-fluid"
+              style="max-width: 18rem; height: 6rem; margin-left: 1rem; margin-bottom: 1rem;">
+          </div>
+          <div class="col">
+            <p class="mb-0">
+            <p class="dataName">Humidity</p>
+            <h1>{{humidity}} %</h1>
+          </div>
+          <div class="progress" style="height: 15px">
+            <div class="progress-bar bg-info" role="progressbar" aria-label="Basic example" [style.width.%]="humidity"
+              [attr.aria-valuenow]="soilMoisture" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <img src="https://img.icons8.com/?size=100&id=9n2cinyOwlB8&format=png&color=705205" alt="" class="img-fluid"
+              style="max-width: 18rem; height: 6rem; margin-left: 1rem; margin-bottom: 1rem;">
+          </div>
+          <div class="col">
+            <p class="mb-0">
+            <p class="dataName">Soil Moisture</p>
+            <h1>{{soilMoisture}}%</h1>
+          </div>
+          <div class="progress" style="height: 15px">
+            <div class="progress-bar bg-soil" role="progressbar" aria-label="Basic example" [style.width.%]="soilMoisture"
+              [attr.aria-valuenow]="soilMoisture" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <img src="https://img.icons8.com/?size=100&id=8EUmYhfLPTCF&format=png&color=000000" alt="" class="img-fluid"
+              style="max-width: 18rem; height: 6rem; margin-left: 1rem; margin-bottom: 1rem;">
+          </div>
+          <div class="col">
+            <p class="mb-0">
+            <p class="dataName">Light Level</p>
+            <h2>{{lightPercentage}}</h2>
+          </div>
+          <div class="progress" style="height: 15px">
+            <div class="progress-bar bg-warning" role="progressbar" aria-label="Basic example"
+              [style.width.%]="lightPercentage" [attr.aria-valuenow]="soilMoisture" aria-valuemin="0" aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="text-start" style="margin-top: 3rem; height: 18rem;">
+  <p class="zones" >Controls</p>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="dataName"> Manual Watering</p>
+        <div class="card" style="width: 26rem;">
+          <div class="card-body">
+            <div class="container text-center">
+              <div class="row">
+                <div class="col">
+                  <img src="https://img.icons8.com/?size=100&id=ta4G0zv06JUw&format=png&color=000000"
+                    class="card-img-top" alt="..."
+                    style="max-width: 6rem; height: 6rem; margin-left: 1rem; margin-bottom: 1rem;">
+                </div>
+                
+                <div class="col text-center">
+                  <p class="text-center">Water Pump Status</p>
+                  <div class="form-check form-switch d-flex justify-content-between align-items-center"
+                    style="margin-top: 2rem; width: auto; margin-right: 1rem;">
+                    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked"
+                      [(ngModel)]="waterSwitch" (change)="waterNow()" />
+                    <label class="form-check-label" for="switchCheckChecked">
+                     {{ waterSwitch ? 'ON' : 'OFF' }}
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>Manually overrides automatic settings to deliver water now.</p>
+      </div>
+      <div class="col">
+        <p class="dataName"> Automate System</p>
+        <button class="btn btn-primary" (click)="toggleColor()">
+          Automation: {{ auto ? 'ON' : 'OFF' }}</button>
+          <p>Toggles the entire system's automated control logic ({{auto ? 'Active':'Inactive'}}).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="col-auto align-items-right" style="height: 120px; margin-right: 50px;">
+          <div [class.green-bg]="isGreen" [class.black-bg]="!isGreen" (click)="toggleColor()" style="cursor: pointer;">
+            <img src="https://img.icons8.com/?size=40&id=U1ABXA16ytNP&format=png&color=ffffff" alt="Toggle Icon">
+          </div>
+          <p>Automate: {{auto}}</p>
+        </div> -->
+
+<!-- <div class="container " style="margin-top: 2rem;">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <div class="card shadow-sm" style="width: 22rem">
+          <img [src]="" class="card-img-top" alt="{{ label }}" />
+          <div class="card-body">
+            <h5 class="card-title">{{ label }}</h5>
+            <p class="card-text">Moisture Level: {{ soilMoisture }}%</p>
+            <div class="progress" style="height: 20px">
+              <div class="progress-bar bg-warning" role="progressbar" aria-label="Basic example"
+                [style.width.%]="soilMoisture" [attr.aria-valuenow]="soilMoisture" aria-valuemin="0"
+                aria-valuemax="100"></div>
+            </div>
+
+            <div class="form-check form-switch d-flex justify-content-between align-items-center"
+              style="margin-top: 2rem; width: 200px;">
+              <label class="form-check-label" for="switchCheckChecked">
+                Water now
+              </label>
+
+              <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked"
+                [(ngModel)]="waterSwitch" (change)="waterNow()" />
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card thermostat-card p-3 shadow-lg">
+          <div
+            class="circular-control mb-3 d-flex flex-column justify-content-center align-items-center position-relative">
+            <div class="current-temp text-center">
+              <span class="display-1 fw-light">{{temperature}}</span>
+              <span class="temp-unit">&deg;C</span>
+            </div>
+            <div class="humidity text-center">
+              <i class="bi bi-droplet-fill">humidity: {{humidity}}%</i>
+            </div>
+            <div class="status text-center text-secondary fs-6">
+              {{weather}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm" style="width: 22rem">
+          <img [src]="" class="card-img-top" alt="{{ label }}" />
+          <div class="card-body">
+            <h5 class="card-title">{{ lightLabel }}</h5>
+            <p class="card-text">Light Level: </p>
+            <h3>{{ soilMoisture }} Lux</h3>
+            <div class="progress" style="height: 20px">
+              <div class="progress-bar" role="progressbar" aria-label="Basic example" [style.width.%]="humidity"
+                [attr.aria-valuenow]="humidity" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <a href="#" class="btn btn-primary w-100 mt-3" (click)="waterNow()">💧 Water Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<app-footer></app-footer>
