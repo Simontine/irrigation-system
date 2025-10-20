@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
   soilMoisture: number | null = null;
   waterSwitch: boolean = false;
   automate: boolean = false;
+  tankLevel: number | null = null;
 
   //////////////////////////////////
   isAuto: boolean = false; 
@@ -55,7 +56,6 @@ export class DashboardComponent implements OnInit {
 
     const dbRef = ref(this.db, 'sensorData');
 
-    // 🔹 Listen for sensor and switch updates
     onValue(dbRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
@@ -66,6 +66,7 @@ export class DashboardComponent implements OnInit {
         this.waterSwitch = data.waterSwitch ?? false;
         this.auto = data.auto ?? false;
         this.lightPercentage = data.lightPercentage ?? null;
+        this.tankLevel = ((data.tankLevel)) ?? null;
       }
     });
     
