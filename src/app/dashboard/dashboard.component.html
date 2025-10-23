@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg justify-content-center ">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/" style="color: white;">GreenThumb</a>
+    <a class="navbar-brand" routerLink="/" style="color: white;">
+      GreenThumb</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -26,17 +27,13 @@
     </div>
   </div>
 </nav>
-
-
 <div class="p-5 mb-4 bg-light rounded-3">
   <div class="container-fluid py-0">
-    <h1 class="display-5 fw-bold text-justify-last-center welcome">Welcome, Clinton!</h1>
+    <h1 class="display-5 fw-bold text-justify-last-center welcome">Welcome back, {{user}}!</h1>
     <p class="col-md-8 mx-auto text-justify-last-center auto">Automated watering system that adapts to weather
       conditions and soil moisture</p>
   </div>
 </div>
-
-
 <div style="margin: 2rem;">
   <div class="card" style=" height: 160px;">
     <div class="card-body">
@@ -58,11 +55,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
 <div class=" bg-light text-start" style="margin-top: 3rem; height: 20rem;">
   <p class="zones" style="padding-top: 2rem;">Live Sensor Data</p>
   <div class="containe" style="margin: 2rem;">
@@ -113,7 +105,7 @@
               <img src="https://img.icons8.com/?size=100&id=9n2cinyOwlB8&format=png&color=705205" alt=""
                 class="img-fluid" style="max-width: 18rem; height: 6rem; margin-left: 1rem; margin-bottom: 1rem;">
             </div>
-            <div class="col" *ngIf="soilMoisture == 0">
+            <div class="col">
               <p class="mb-0">
               <p class="dataName">Soil Moisture</p>
               <h1>{{soilMoisture}}%</h1>
@@ -193,11 +185,7 @@
         </div>
         <div class="col">
           <div class="card" style="width: 36rem; height: 194px; padding-top: 1.5rem;">
-            
             <div class="card-body">
-              <!-- <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a> -->
               <div class="container text-center">
                 <div class="row">
                   <div class="col">

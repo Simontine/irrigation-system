@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   username: string | null = '';
   time: string = '';
   private timer: any;
+  user: string = 'Clinton';
 
 
   label: string = 'Moisture';
