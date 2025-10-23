@@ -16,7 +16,7 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
   login() {
-    if (this.username === 'test@gmail.com' && this.password === '1234') {
+    if (this.username === 'clintonmachipi99@gmail.com' && this.password === '1234') {
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('username', this.username);
       this.router.navigate(['/dashboard']);
