@@ -1,12 +1,11 @@
 export const environments = {
   production: false,
-  firebaseConfig: {
-    apiKey: "AIzaSyAQUz_WwFuyHNl4SWLaxMGWzz1ZaCLcTwc",
-    authDomain: "irrigation-system-ffb92.firebaseapp.com",
-    databaseURL: "https://irrigation-system-ffb92-default-rtdb.firebaseio.com",
-    projectId: "irrigation-system-ffb92",
-    storageBucket: "irrigation-system-ffb92.firebasestorage.app",
-    messagingSenderId: "434265249487",
-    appId: "1:434265249487:web:63c82819c6e5b08f4209ba"
+   firebaseConfig: {
+    apiKey: "AIzaSyAZIo6gC0XX-FhNWnhSO_La7KFAstKUer4",
+    authDomain: "garden-123.firebaseapp.com",
+    projectId: "garden-123",
+    storageBucket: "garden-123.firebasestorage.app",
+    messagingSenderId: "347774419343",
+    appId: "1:347774419343:web:19a05d018190af1b414bfa"
   }
 };
