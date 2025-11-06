@@ -116,3 +116,45 @@ img {
   margin: 10px auto 0;
 }
 
+/* CSS for custom classes to manage icon sizing responsively */
+.icon-lg {
+  max-width: 80px; /* Base size for large icons */
+  height: auto;
+}
+
+.icon-sm {
+  max-width: 60px; /* Base size for small sensor icons */
+  height: auto;
+  margin-right: 0.5rem;
+}
+
+/* Specific sizing for controls to keep them neat on small screens */
+.icon-lg-control {
+  max-width: 50px; 
+  height: auto;
+}
+
+/* Media Query to adjust icon size for larger screens (optional but good practice) */
+@media (min-width: 768px) {
+  .icon-lg {
+    max-width: 100px;
+  }
+  .icon-sm {
+    max-width: 80px;
+  }
+  .icon-lg-control {
+    max-width: 80px; 
+  }
+}
+
+/* Ensure custom colors for progress bars are defined if you use them, e.g.: */
+.bg-soil {
+  background-color: #705205 !important;
+}
+
+/* Ensure the zones class is defined if you want custom styling */
+.zones {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
