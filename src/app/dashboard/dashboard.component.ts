@@ -19,6 +19,10 @@ export class DashboardComponent implements OnInit {
   private timer: any;
   user: string = 'Clinton';
 
+  maxTankValue = 20;
+  tankPercentage: number = 0;
+  liters: number = 0;
+
 
   label: string = 'Moisture';
   lightLabel: string = 'Light Level';
@@ -31,7 +35,7 @@ export class DashboardComponent implements OnInit {
   soilMoisture: number | null = null;
   waterSwitch: boolean = false;
   automate: boolean = false;
-  tankLevel: number | null = null;
+  tankLevel: number = 0;
 
   //////////////////////////////////
   isAuto: boolean = false; 
@@ -40,6 +44,8 @@ export class DashboardComponent implements OnInit {
   /////////////////////////////////
 
   constructor(private db: Database, private router: Router) {}
+
+  
 
   ngOnInit() {
 
@@ -68,10 +74,19 @@ export class DashboardComponent implements OnInit {
         this.auto = data.auto ?? false;
         this.lightPercentage = data.lightPercentage ?? null;
         this.tankLevel = ((data.tankLevel)) ?? null;
+        console.log("Distance: ", ((20.2 - this.tankLevel)/20)*3);
+        this.liters = (((this.tankLevel)/20)*3);
+        this.tankPercentage = (( this.tankLevel)/20)*100;
+        // console.log("Tank Percentage: ", this.tankPercentage);
       }
     });
+
     
+    // this.tankPercentage = this.tankLevel !== null ? (this.tankLevel / this.maxTankValue) * 100 : 0;
+    
+   
   }
+  
 
   updateTime() {
     const now = new Date();

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg justify-content-center">
+<nav class="navbar fixed-top navbar-expand-lg justify-content-center">
   <div class="container-fluid">
     <a class="navbar-brand text-white" routerLink="/">GreenThumb</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -11,10 +11,10 @@
           <a class="nav-link active" routerLink="/dashboard" aria-current="page">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/features">Schedules</a>
+          <a class="nav-link" routerLink="#">Schedules</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/pricing">Analytics</a>
+          <a class="nav-link" routerLink="#">Analytics</a>
         </li>
       </ul>
       <ul class="navbar-nav">
@@ -26,7 +26,8 @@
   </div>
 </nav>
 
-<div class="p-5 mb-4 bg-light rounded-3 text-center"> <div class="container-fluid py-0">
+<div class="p-5 mb-4 mt-4 bg-light rounded-3 text-center"> 
+  <div class="container-fluid py-0">
     <h1 class="display-5 fw-bold welcome">Welcome back, {{user}}!</h1>
     <p class="col-md-8 mx-auto">Automated watering system that adapts to weather conditions and soil moisture</p>
   </div>
@@ -54,6 +55,7 @@
 
 <div class="bg-light pt-4 pb-5 my-5"> <div class="container"> <p class="zones" style="padding-bottom: 1rem;">Live Sensor Data</p>
     <div class="row g-3"> 
+
       <div class="col-12 col-md-6 col-lg-3" >
         <div class="card p-3 h-100" style="width: auto;"> 
           <div class="row align-items-center">
@@ -80,7 +82,7 @@
               <img src="https://img.icons8.com/?size=100&id=3432&format=png&color=22C3E6" alt="Humidity Icon" class="icon-sm">
             </div>
             <div class="col">
-              <p class="dataName mb-0">Humidity</p>
+              <p class="dataName mb-0">Humidity&nbsp;*</p>
               <h1 class="mb-2">{{humidity}} %</h1>
             </div>
           </div>
@@ -98,7 +100,7 @@
               <img src="https://img.icons8.com/?size=100&id=9n2cinyOwlB8&format=png&color=705205" alt="Soil Moisture Icon" class="icon-sm">
             </div>
             <div class="col">
-              <p class="dataName mb-0">Soil Moisture</p>
+              <p class="dataName mb-0">Soil&nbsp;Moisture</p>
               <h1 class="mb-2">{{soilMoisture}}%</h1>
             </div>
           </div>
@@ -116,7 +118,7 @@
               <img src="https://img.icons8.com/?size=100&id=8EUmYhfLPTCF&format=png&color=000000" alt="Light Level Icon" class="icon-sm">
             </div>
             <div class="col">
-              <p class="dataName mb-0">Light Level</p>
+              <p class="dataName mb-0">Light&nbsp;Level</p>
               <h2 class="mb-2">{{lightPercentage}}</h2>
             </div>
           </div>
@@ -127,7 +129,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -206,11 +207,14 @@
             </div>
             <div class="col">
               <p class="dataName mb-0">Volume empty</p>
-              <h1>{{tankLevel}} Liters</h1>
+              <h1>{{liters}} Liters</h1>
             </div>
             <div class="progress" style="height: 15px">
-              <div class="progress-bar bg-info" role="progressbar" [style.width.%]="tankLevel"
-                [attr.aria-valuenow]="tankLevel" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar bg-info" role="progressbar" 
+                [style.width.%]="tankPercentage"
+                [attr.aria-valuenow]="tankLevel" 
+                aria-valuemin="0" 
+                aria-valuemax="20">
               </div>
             </div>
           </div>
