@@ -40,6 +40,7 @@ export class DashboardComponent implements OnInit {
   //////////////////////////////////
   isAuto: boolean = false; 
   auto: string ='OFF'; 
+  liter: number = 0;
   
   /////////////////////////////////
 
@@ -73,9 +74,11 @@ export class DashboardComponent implements OnInit {
         this.waterSwitch = data.waterSwitch ?? false;
         this.auto = data.auto ?? false;
         this.lightPercentage = data.lightPercentage ?? null;
-        this.tankLevel = ((data.tankLevel)) ?? null;
-        console.log("Distance: ", ((20.2 - this.tankLevel)/20)*3);
+        this.tankLevel = ((data.tankLevel).toFixed(2)) ?? null;
+        // console.log("Distance: ", ((20.2 - this.tankLevel)/20)*3);
         this.liters = (((this.tankLevel)/20)*3);
+        // console.log("Liters: ", this.liters.toFixed(2));
+        this.liter = this.liters.toFixed(2) as unknown as number;
         this.tankPercentage = (( this.tankLevel)/20)*100;
         // console.log("Tank Percentage: ", this.tankPercentage);
       }

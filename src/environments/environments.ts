@@ -1,6 +1,6 @@
 export const environments = {
   production: false,
-   firebaseConfig: {
+  firebaseConfig: {
     apiKey: "AIzaSyAZIo6gC0XX-FhNWnhSO_La7KFAstKUer4",
     authDomain: "garden-123.firebaseapp.com",
     projectId: "garden-123",
