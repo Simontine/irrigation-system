@@ -8,13 +8,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/dashboard" aria-current="page">Dashboard</a>
+          <!-- <a class="nav-link active" routerLink="/dashboard" aria-current="page">Dashboard</a> -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="#">Schedules</a>
+          <!-- <a class="nav-link" routerLink="#">Schedules</a> -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="#">Analytics</a>
+          <!-- <a class="nav-link" routerLink="#">Analytics</a> -->
         </li>
       </ul>
       <ul class="navbar-nav">
@@ -114,21 +114,47 @@
       <div class="col-12 col-md-6 col-lg-3">
         <div class="card p-3 h-100">
           <div class="row align-items-center">
-            <div class="col-auto">
+            <div class="col-auto" *ngIf="!isRaining " statusText='Raining'>
               <img src="https://img.icons8.com/?size=100&id=8EUmYhfLPTCF&format=png&color=000000" alt="Light Level Icon" class="icon-sm">
             </div>
+            <div class="col-auto" *ngIf="isRaining">
+              <img src="https://img.icons8.com/?size=100&id=8cDNraQqdlD2&format=png&color=000000" alt="">
+            </div>
             <div class="col">
-              <p class="dataName mb-0">Light&nbsp;Level</p>
-              <h2 class="mb-2">{{lightPercentage}}</h2>
+              <p class="dataName mb-0">Rain&nbsp;Status:</p>
+              <h4 class="mb-2" *ngIf="isRaining" data-bs-toggle="modal" data-bs-target="#exampleModal">Raining</h4>
+              <h4 class="mb-2" *ngIf="!isRaining ">Not Raining</h4>
             </div>
           </div>
-          <div class="progress mt-3" style="height: 15px">
-            <div class="progress-bar bg-warning" role="progressbar" [style.width.%]="lightPercentage"
-              [attr.aria-valuenow]="lightPercentage" aria-valuemin="0" aria-valuemax="100">
+          <div class="container">
+            <p class="dataName">Listening for rain alerts</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button trigger modal-->
+      <div *ngIf="isRaining" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      </div>
+
+      
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body"> 
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 </div>
@@ -207,14 +233,14 @@
             </div>
             <div class="col">
               <p class="dataName mb-0">Volume empty</p>
-              <h1>{{liter}} Liters</h1>
+              <h1>{{liters}} Liters</h1>
             </div>
             <div class="progress" style="height: 15px">
               <div class="progress-bar bg-info" role="progressbar" 
                 [style.width.%]="tankPercentage"
                 [attr.aria-valuenow]="tankLevel" 
                 aria-valuemin="0" 
-                aria-valuemax="20">
+                aria-valuemax="100">
               </div>
             </div>
           </div>

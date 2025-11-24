@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   username: string | null = '';
   time: string = '';
   private timer: any;
-  user: string = 'Clinton';
+  user: string = 'Simon';
 
   maxTankValue = 20;
   tankPercentage: number = 0;
@@ -28,8 +28,7 @@ export class DashboardComponent implements OnInit {
   lightLabel: string = 'Light Level';
   weather: string = 'Weather';
 
-  lightValue: number | null = null;
-  lightPercentage: number | null = null;
+  isRaining: boolean  = false;
   temperature: number | null = null;
   humidity: number | null = null;
   soilMoisture: number | null = null;
@@ -40,7 +39,7 @@ export class DashboardComponent implements OnInit {
   //////////////////////////////////
   isAuto: boolean = false; 
   auto: string ='OFF'; 
-  liter: number = 0;
+  statusText: string = 'Not Raining';
   
   /////////////////////////////////
 
@@ -70,17 +69,16 @@ export class DashboardComponent implements OnInit {
         this.temperature = data.temperature ?? null;
         this.humidity = data.humidity ?? null;
         this.soilMoisture = data.soilMoisture ?? null;
-        this.lightValue = data.lightValue ?? null;
+        this.isRaining = data.isRaining ?? null;
         this.waterSwitch = data.waterSwitch ?? false;
         this.auto = data.auto ?? false;
-        this.lightPercentage = data.lightPercentage ?? null;
-        this.tankLevel = ((data.tankLevel).toFixed(2)) ?? null;
-        // console.log("Distance: ", ((20.2 - this.tankLevel)/20)*3);
-        this.liters = (((this.tankLevel)/20)*3);
-        // console.log("Liters: ", this.liters.toFixed(2));
-        this.liter = this.liters.toFixed(2) as unknown as number;
+        this.tankLevel = (data.tankLevel).toFixed(2) ?? null;
+
+        console.log("Distance: ", ((20.2 - this.tankLevel)/20)*3);
+
+        this.liters = (((this.tankLevel)/20)*3).toFixed(2) as unknown as number;
         this.tankPercentage = (( this.tankLevel)/20)*100;
-        // console.log("Tank Percentage: ", this.tankPercentage);
+        console.log("Tank Percentage: ", this.tankLevel);
       }
     });
 
@@ -150,6 +148,17 @@ async toggleColor() {
   }
 }
 
+ async rainStatus() {
+  if(this.humidity !== null && this.humidity > 60 && this.humidity <= 80) {
+    this.statusText = 'Could Rain';
+  }
+  else if(this.humidity !== null && this.humidity > 80) {
+    this.statusText = 'Raining';
+  }
+  else {
+    this.statusText = 'Not Raining';
+  }
+ }
   ngOnDestroy() {
     clearInterval(this.timer);
   }
